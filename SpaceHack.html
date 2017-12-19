@@ -2,11 +2,11 @@
 
     <div class='sheet-twoColRow'>
         <div class="sheet-col sheet-oneThird">
-            <h1>The Black Hack</h1>
+            <h1>The Space Hack</h1>
         </div>
         <div class="sheet-col sheet-twoThirds sheet-bio">
-            <input type="text" name="attr_name" placeholder="Name"/>
-			<input type="text" name="attr_class" placeholder="Class"/>
+            <input type="text" name="attr_name" placeholder="Nome"/>
+			<input type="text" name="attr_class" placeholder="Classe"/>
             <div style="display:inline-block;">Level <input type="number" name="attr_level" /></div>
         </div>
     </div>
@@ -58,11 +58,11 @@
     
     <div class="sheet-health">
         AP <input type="text" class="sheet-narrowTextField" name="attr_armorPoints" title="Armor Points" />
-        HP <input type="text" class="sheet-narrowTextField" name="attr_hp" title="Hit Points" />
-        Hit Die <input type="text" class="sheet-narrowTextField" name="attr_hitDie"/>
+        PV <input type="text" class="sheet-narrowTextField" name="attr_hp" title="Hit Points" />
+        Dado de Vida <input type="text" class="sheet-narrowTextField" name="attr_hitDie"/>
         <button type="roll" value="/roll @{hitDie}" name="roll_hitDie"></button>
         
-        Attack Damage 
+        Dano de Ataque 
         <input type="text" class="sheet-narrowTextField" name="attr_weaponDamage" placeholder="weapon damage" title="weapon damage" /> 
         <button type="roll" value="/roll @{weaponDamage}" name="roll_weaponDamage" title="Roll Weapon Damage"></button>
         / 
@@ -72,13 +72,13 @@
     
     <div class="sheet-inventory">
 
-        <h2>Inventory and Usage Dice</h2>
+        <h2>Inventário e Dado de Uso</h2>
         
         <fieldset class="repeating_inventory">
-            <input type="text" name="attr_inventoryItemName" class="sheet-oneThird" placeholder="item name" />
-            <input type="text" name="attr_inventoryItemNotes" class="sheet-half" placeholder="item notes" />
+            <input type="text" name="attr_inventoryItemName" class="sheet-oneThird" placeholder="nome do item" />
+            <input type="text" name="attr_inventoryItemNotes" class="sheet-half" placeholder="notas do item" />
             
-            <select name="attr_usageDieType" placeholder="usage">
+            <select name="attr_usageDieType" placeholder="dado de uso">
                 <option value=""></option>
                 <option value="d20">d20</option>
                 <option value="d12">d12</option>
@@ -94,7 +94,7 @@
     </div>
     
     <div class="sheet-spells">
-        <h2>Spells and Abilities</h2>
+        <h2>Habilidades Especiais</h2>
         <fieldset class="repeating_spells">
             <input type="text" name="attr_spellName" class="sheet-oneThird" placeholder="name" />
             <input type="text" name="attr_spellNotes" class="sheet-half" placeholder="notes" />
@@ -119,23 +119,23 @@
 	<div>Roll Result: {{rollResult}}</div>
 	<div>Outcome:
 		{{#rollGreater() attribute rollResult}}
-			Success!
+			Successo!
 		{{/rollGreater() attribute rollResult}}
 
 		{{#rollGreater() rollResult attribute}}
-			Failure!
+			Falha!
 		{{/rollGreater() rollResult attribute}}
 		
 		{{#rollTotal() attribute rollResult}}
-		    Failure!
+		    Falha!
 		{{/rollTotal() attribute rollResult}}
 		
 		{{#rollLess() rollResult 2}}
-		    <h2>Crit!</h2>
+		    <h2>Acerto Crítico!</h2>
 		{{/rollLess() rollResult 2}}
 
 		{{#rollGreater() rollResult 19}}
-		    <h2>Fumble!</h2>
+		    <h2>Falha Crítica!</h2>
 		{{/rollGreater() rollResult 19}}
 		
 				
